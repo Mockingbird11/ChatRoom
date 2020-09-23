@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/all.min.css" rel="stylesheet" />
+<script src="~/js/all.min.js"></script>
+<script>
+    $(function () {
+        var app = new Vue({
+            el: '#vueApp',
+            data: {
+                userName: "",
+                passWord: ""
+            },
+            methods: {
+                login: function () {
+                    if (!this.userName || !this.passWord) {
+                        layer.alert('请输入用户名和密码...', { icon: 2 });
+                        return;
+                    }
+                    AjaxPost("/Users/Users/Regist", { userName: this.userName, passWord: this.passWord }, function (data) {
+                        if (data.code == -1) {
+                            layer.alert(data.msg, { icon: 2 });
+                        } else {
+                            layer.alert("注册成功，快去登录吧！", { icon: 1 });
+                        }
+                    });
+                }
+            }
+        })
+
+        //$.backstretch("/image/Eminem_19.jpg");
+
+    })
+
+</script>
+
+
+
+<div class="top-content" id="vueApp">
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <h1>登录</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <p>Enter your username and password to Regist:</p>
+                        </div>
+                        <div class="form-top-right">
+                            <a href="/Users/Users/LoginIndex">Go to Login</a>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <div class="form-group">
+                            <label class="sr-only" for="form-username">Username</label>
+                            <input type="text" placeholder="Username..." class="form-username form-control" v-model="userName" id="userName" value="admin">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-password">Password</label>
+                            <input type="password" name="form-password" placeholder="Password..." v-model="passWord" class="form-password form-control" id="passWord">
+                        </div>
+                        <button type="button" id="btn_Login" v-on:click="login(123)" class="btn">Join Us!</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

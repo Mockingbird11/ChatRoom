@@ -1,0 +1,31 @@
+[
+  {
+    "outputFileName": "wwwroot/css/all.min.css",
+    "inputFiles": [
+      "node_modules/bootstrap/dist/css/bootstrap.css",
+      "wwwroot/css/site.css",
+      "wwwroot/css/form-elements.css",
+      "wwwroot/css/font-awesome.min.css",
+      "wwwroot/css/style.css",
+      "wwwroot/css/layer.css"
+    ]
+  },
+  //js
+  {
+    "outputFileName": "wwwroot/js/all.min.js",
+    "inputFiles": [
+      "node_modules/jquery/dist/jquery.js",
+      "node_modules/bootstrap/dist/js/bootstrap.js",
+      "node_modules/vue/dist/vue.js",
+      "wwwroot/js/site.js",
+      "wwwroot/js/jquery.backstretch.min.js",
+      "wwwroot/js/layer.js",
+      "wwwroot/js/UtilJs.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]
